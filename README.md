@@ -1,1 +1,1 @@
-# E2PConvert the export data of Evernote(.enex) to data Pocket can import
+# E2PConvert the export data of Evernote(.enex) to data Pocket can import## Usage    $go run e2p.go input.enex output.html
