@@ -20,9 +20,9 @@ type Note struct {
 	Source string `xml:"note-attributes>source-url"`
 }
 
-func convert(in io.Reader, out io.Writer) error {
+func convert(r io.Reader, w io.Writer) error {
 	e := EnExport{}
-	if err := xml.NewDecoder(in).Decode(&e); err != nil {
+	if err := xml.NewDecoder(r).Decode(&e); err != nil {
 		return err
 	}
 
@@ -35,7 +35,7 @@ func convert(in io.Reader, out io.Writer) error {
 	}
 
 	t := template.Must(template.New("pocket").Parse(tpl))
-	if err := t.Execute(out, e); err != nil {
+	if err := t.Execute(w, e); err != nil {
 		return err
 	}
 	return nil
