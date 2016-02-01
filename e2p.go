@@ -30,7 +30,7 @@ func convert(r io.Reader, w io.Writer) error {
 	dummy := "https://getpocket.com/"
 	for i, v := range e.Note {
 		if v.Source == "" {
-			e.Note[i].Source = dummy
+			e.Note[i].Source = dummy + fmt.Sprint(i)
 		}
 	}
 
